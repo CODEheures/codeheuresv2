@@ -1,0 +1,121 @@
+<template>
+  <div class="grid-content">
+    <article>
+      <div>
+        <h1>Créations de sites internet</h1>
+        <h2>
+          Développeur WEB freelance, spécialiste <a href="https://laravel.com" title="création de sites internet avec backend laravel" target="_blank">Laravel</a> et <a href="https://vuejs.org" title="développement de sites web avec frontend vuejs" target="_blank">VueJS</a>
+        </h2>
+        <p>Création et maintenance de sites internets. Sous-traitance pour les agences web.</p>
+        <p class="action">
+          <a class="btn-transparent" href="https://docs.google.com/forms/d/e/1FAIpQLScrk8x-0RMkt4xzhFYC0jiwbU_YNYElWBiosjyyItr7Nrb1BA/viewform" title="devis pour votre création de sites internet développés avec laravel et vuejs à Tours" target="_blank">Demander un devis en 3mn</a>
+          <nuxt-link to="/realisations" class="btn-yellow" title="webmaster sites internets">Réalisations</nuxt-link>
+        </p>
+      </div>
+    </article>
+    <footer>
+      <a href="#prestations" title="site développés avec laravel et vuejs à Tours"><span>En savoir plus</span><i class="fas fa-angle-down fa-5x"></i></a>
+    </footer>
+  </div>
+
+
+
+</template>
+
+<script>
+  export default {
+    head: {
+      title: "Création de sites internet et sites mobiles à Tours"
+    }
+  }
+</script>
+
+<style lang="scss">
+
+  .grid-content {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 100px;
+    grid-template-areas: "body" "footer";
+  }
+
+  @keyframes to-down {
+    0% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    70% {
+      -webkit-transform: translateY(-1rem);
+      transform: translateY(-1rem);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+
+  article {
+    grid-area: body;
+    align-items: center;
+    display: grid;
+    text-align: center;
+    color: white;
+
+    & div {
+      display: grid;
+      h1 {
+        font-size: 4.6rem;
+        line-height: 6rem;
+        letter-spacing: .2rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        @media (max-width: 600px) {
+          font-size: 3.5rem;
+        }
+      }
+
+      h2 {
+        padding-top: 5rem;
+        padding-bottom: .5rem;
+        line-height: 2.4rem;
+        font-size: 1.8rem;
+        font-weight: 300;
+        @media (max-width: 600px) {
+          padding-top: 2rem;
+        }
+      }
+
+      p {
+        font-size: 1.8rem;
+        font-weight: 300;
+        &.action {
+          margin-top: 4rem;
+          @media (max-width: 600px) {
+            display: grid;
+            grid-row-gap: 10px;
+          }
+        }
+      }
+    }
+
+  }
+
+  footer {
+    grid-area: footer;
+    text-align: center;
+
+    & a {
+      text-decoration: none;
+      display: grid;
+      grid-template-rows: 3fr;
+      font-size: 1.5rem;
+      overflow-y: hidden;
+      animation: to-down 2s infinite;
+      & i {
+        grid-row: 2 / span 2;
+      }
+    }
+
+  }
+</style>
