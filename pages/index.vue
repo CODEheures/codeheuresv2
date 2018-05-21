@@ -17,20 +17,29 @@
       <a href="#prestations" title="site développés avec laravel et vuejs à Tours"><span>En savoir plus</span><i class="fas fa-angle-down fa-5x"></i></a>
     </footer>
   </div>
-
-
-
 </template>
 
 <script>
   export default {
+    transition (to, from) {
+      if (to && to.name === 'index') {
+        console.log('slide all to up index')
+        return {name: 'slide-all-to-down', mode: ''}
+      } else {
+
+      }
+    },
     head: {
       title: "Création de sites internet et sites mobiles à Tours"
     }
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+  $sm: 600px;
+
+  $padding_xl: 10%;
+  $padding_sm: 2.5%;
 
   .grid-content {
     grid-area: content;
@@ -38,6 +47,13 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 100px;
     grid-template-areas: "body" "footer";
+    padding-left: $padding_xl;
+    padding-right: $padding_xl;
+
+    @media (max-width: $sm) {
+      padding-left: $padding_sm;
+      padding-right: $padding_sm;
+    }
   }
 
   @keyframes to-down {
@@ -118,4 +134,5 @@
     }
 
   }
+
 </style>

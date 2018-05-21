@@ -3,7 +3,7 @@ $color-yellow : #ffee7b;
 $xl: 80%;
 $sm: 95%;
 
-
+$transition_duration: 0.4s;
 
 a {
   display: inline-block;
@@ -44,3 +44,79 @@ a {
   }
 }
 
+/**
+** slide all to up
+ */
+.slide-all-to-up-leave-to { // old exit to
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.slide-all-to-up-leave {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.slide-all-to-up-leave-active {
+  transition: all $transition_duration ease-out;
+}
+
+.slide-all-to-up-enter {  // new enter from
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.slide-all-to-up-enter-to {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.slide-all-to-up-enter-active {
+  transition: all $transition_duration ease-in;
+}
+
+/**
+** slide all to down
+ */
+.slide-all-to-down-leave-to { // old exit to
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.slide-all-to-down-leave {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.slide-all-to-down-leave-active {
+  transition: all $transition_duration ease-out;
+}
+
+.slide-all-to-down-enter {  // new enter from
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.slide-all-to-down-enter-to {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.slide-all-to-down-enter-active {
+  transition: all $transition_duration ease-in;
+}
+
+/*
+** Appear from top, disappear to top
+ */
+.slide-up-enter, .slide-up-leave-to {
+  transform: translateY(-100%);
+}
+
+.slide-up-enter-to, .slide-up-leave {
+  transform: translateY(0%);
+}
+
+.slide-up-leave-active, .slide-up-enter-active {
+  transition: all $transition_duration ease-in;
+}

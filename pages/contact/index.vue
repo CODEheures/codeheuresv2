@@ -7,7 +7,10 @@
 
 <script>
   export  default {
-    asyncData() {
+    transition (to, from) {
+      //return 'slide-all-up'
+    },
+    asyncData(context) {
       return {
         name: process.static ? 'static' : (process.server ? 'server' : 'client')
       }

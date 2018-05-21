@@ -1,8 +1,12 @@
 <template>
   <div class="screen">
-    <div class="back-image" slot="backImage" v-if="page==='index'"></div>
-    <div class="back-color" slot="backColor" v-if="page==='index'"></div>
-    <div class="grid-main">
+    <transition name="slide-up">
+      <div class="back-image" v-if="page === 'index'"></div>
+    </transition>
+    <transition name="slide-up">
+      <div class="back-color" v-if="page === 'index'"></div>
+    </transition>
+    <div :class="{'grid-main': true, 'compact': (page !== 'index')}">
       <app-header />
       <nuxt/>
     </div>
@@ -17,13 +21,16 @@
     components: {
       appHeader
     },
+    asyncData(context) {
+      return {
+        name: process.static ? 'static' : (process.server ? 'server' : 'client'),
+      }
+    },
     computed: mapState(['page'])
   }
 </script>
 
 <style lang="scss">
-  $xl: 80%;
-  $sm: 95%;
 
   html {
     font-family: "Open sans", serif;
@@ -44,6 +51,7 @@
     margin: 0;
   }
 
+
   .screen {
     display: grid;
     height: 100vh;
@@ -52,13 +60,13 @@
     grid-template-rows: 1fr;
     grid-template-areas: "all";
 
-    .back-image {
+    & div.back-image {
       grid-area: all;
       background-image: url("~/assets/images/2.jpg");
       background-size: cover;
     }
 
-    & .back-color {
+    & div.back-color {
       grid-area: all;
       background-color: rgba(0,5,8,.75);
     }
@@ -70,28 +78,15 @@
       grid-template-rows: 100px 1fr;
       grid-template-areas: "header" "content";
 
-      width: $xl;
+      width: 100%;
       margin-left: auto;
       margin-right: auto;
 
-      @media (max-width: 600px) {
-        width: $sm;
+      &.compact {
+        grid-template-rows: 50px 1fr;
       }
-
     }
   }
 
-  .page-enter-active {
-    transition: opacity 0.25s ease-out;
-  }
-
-  .page-leave-active {
-    transition: opacity 0.25s ease-in;
-  }
-
-  .page-enter,
-  .page-leave-active {
-    opacity: 0;
-  }
 
 </style>

@@ -1,7 +1,13 @@
 <template>
-  <header>
-    <div class="logo"><nuxt-link to="/"><img src="~/assets/images/codeheures.svg"/></nuxt-link></div>
-    <div class="hamburger"><i class="fas fa-bars fa-3x" v-on:click="changeStateMobileMenu"></i></div>
+  <header :class="{'compact': (page !== 'index')}">
+    <div class="logo">
+      <nuxt-link to="/">
+        <img src="~/assets/images/codeheures.svg" />
+      </nuxt-link>
+    </div>
+    <div class="hamburger">
+      <i class="fas fa-bars fa-3x" v-on:click="changeStateMobileMenu"></i>
+    </div>
     <nav :class="'menu ' + mobileMenuClass">
       <nuxt-link exact to="/">Accueil</nuxt-link>
       <nuxt-link to="/prestations">Prestations</nuxt-link>
@@ -11,7 +17,15 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   export default {
+    computed: mapState(['page']),
+    watch: {
+      page () {
+        this.mobileMenuClosed= true
+        this.mobileMenuClass= 'closed-mobile'
+      }
+    },
     data () {
       return {
         mobileMenuClosed: true,
@@ -27,13 +41,29 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   $color-yellow : #ffee7b;
+
+  $sm: 600px;
+
+  $padding_xl: 10%;
+  $padding_sm: 2.5%;
   header {
+    z-index: 2;
     grid-area: header;
     align-items: center;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    transition: all 0.8s ease-out;
+    height: 100px;
+
+    padding-left: $padding_xl;
+    padding-right: $padding_xl;
+
+    @media (max-width: $sm) {
+      padding-left: $padding_sm;
+      padding-right: $padding_sm;
+    }
 
     & div.logo {
       grid-column: 1 / span 6;
@@ -43,6 +73,7 @@
       & img {
         max-height: 80px;
         max-width: 100%;
+        transition: all 0.8s ease-out;
       }
 
       @media (max-width: 600px) {
@@ -113,7 +144,14 @@
       }
     }
 
+    &.compact {
+      background: #222;
+      height: 50px;
 
+      & div.logo img {
+        max-height: 30px;
+      }
+    }
 
   }
 </style>
