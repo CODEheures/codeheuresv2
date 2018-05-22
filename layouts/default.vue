@@ -1,12 +1,12 @@
 <template>
-  <div class="screen">
+  <div :class="{'screen': true, 'index': page === 'index' }">
     <transition name="slide-up">
       <div class="back-image" v-if="page === 'index'"></div>
     </transition>
     <transition name="slide-up">
       <div class="back-color" v-if="page === 'index'"></div>
     </transition>
-    <div :class="{'grid-main': true, 'compact': (page !== 'index')}">
+    <div :class="{'grid-main': true, 'shrink-header': (page !== 'index')}">
       <app-header />
       <nuxt/>
     </div>
@@ -54,11 +54,14 @@
 
   .screen {
     display: grid;
-    height: 100vh;
     width: 100vw;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: "all";
+
+    &.index {
+      height: 100vh;
+    }
 
     & div.back-image {
       grid-area: all;
@@ -82,7 +85,7 @@
       margin-left: auto;
       margin-right: auto;
 
-      &.compact {
+      &.shrink-header {
         grid-template-rows: 50px 1fr;
       }
     }
