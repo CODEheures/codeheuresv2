@@ -58,6 +58,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: "all";
+    min-height: 100vh;
 
     &.index {
       height: 100vh;

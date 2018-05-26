@@ -1,11 +1,7 @@
 <template>
-  <div class="grid-content">
-    <article>
-      <div>
-        <h1>Prestations</h1>
-      </div>
-    </article>
-  </div>
+  <article class="grid-content">
+    <h1>Prestations</h1>
+  </article>
 </template>
 
 <script>
@@ -38,11 +34,12 @@
   .grid-content {
     grid-area: content;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 100px;
-    grid-template-areas: "body" "footer";
+    grid-template-columns: 1fr 1fr;
     padding-left: $padding_xl;
     padding-right: $padding_xl;
+
+    background: url("~/assets/images/background3.png") repeat fixed;
+    background-color: #fff;
 
     @media (max-width: $sm) {
       padding-left: $padding_sm;
@@ -50,10 +47,5 @@
     }
   }
 
-  article {
-    grid-area: body;
-
-
-  }
 
 </style>
