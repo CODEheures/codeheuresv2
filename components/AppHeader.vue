@@ -1,5 +1,5 @@
 <template>
-  <header :class="{'compact': (page !== 'index')}">
+  <header :class="{'shrink': (page !== 'index')}">
     <div class="logo">
       <nuxt-link to="/">
         <img src="~/assets/images/codeheures.svg" />
@@ -144,12 +144,12 @@
       }
     }
 
-    &.compact {
+    &.shrink {
       background: #222;
-      height: 50px;
+      height: 60px;
 
       & div.logo img {
-        max-height: 30px;
+        max-height: 40px;
       }
     }
 

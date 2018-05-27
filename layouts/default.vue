@@ -87,7 +87,7 @@
       margin-right: auto;
 
       &.shrink-header {
-        grid-template-rows: 50px 1fr;
+        grid-template-rows: 60px 1fr;
       }
     }
   }
