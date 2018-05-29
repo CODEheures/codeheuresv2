@@ -29,6 +29,22 @@
     },
     head: {
       title: "Création de sites internet et sites mobiles à Tours"
+    },
+    mounted () {
+      document.addEventListener('wheel', this.handleWheel)
+    },
+    beforeDestroy () {
+      document.removeEventListener('wheel', this.handleWheel);
+    },
+    destroyed () {
+
+    },
+    methods: {
+      handleWheel (event) {
+        if(event.deltaY > 0) {
+          this.$router.push('/prestations')
+        }
+      }
     }
   }
 </script>
