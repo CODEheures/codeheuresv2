@@ -30,11 +30,20 @@
     head: {
       title: "Création de sites internet et sites mobiles à Tours"
     },
+    data () {
+      return {
+        touch: {startX: 0, startY:0, startTime:0, endX:0, endY:0, endTime:0, thresholdY: 150, allowedTime: 400}
+      }
+    },
     mounted () {
-      document.addEventListener('wheel', this.handleWheel)
+      document.addEventListener('wheel', this.handleWheel, {passive: true})
+      document.addEventListener('touchstart', this.handleTouchStart, {passive: true})
+      document.addEventListener('touchend', this.handleTouchEnd, {passive: true})
     },
     beforeDestroy () {
       document.removeEventListener('wheel', this.handleWheel);
+      document.removeEventListener('touchstart', this.handleTouchStart)
+      document.removeEventListener('touchend', this.handleTouchEnd)
     },
     destroyed () {
 
@@ -44,6 +53,29 @@
         if(event.deltaY > 0) {
           this.$router.push('/prestations')
         }
+      },
+      handleTouchStart (event) {
+        this.reinitTouch()
+        let touchobj = event.changedTouches[0]
+        this.touch.startX = touchobj.pageX
+        this.touch.startY = touchobj.pageY
+        this.touch.startTime = new Date().getTime() // record time when finger first makes contact with surface
+        this.touch.endX = this.touch.startX
+        this.touch.endY = this.touch.startY
+        this.touch.endTime = this.touch.startTime
+      },
+      handleTouchEnd (event) {
+        let touchobj = event.changedTouches[0]
+        this.touch.endX = touchobj.pageX
+        this.touch.endY = touchobj.pageY
+        this.touch.endTime = new Date().getTime() // record time when finger first makes contact with surface
+        if(this.touch.startY-this.touch.endY >= this.touch.thresholdY && this.touch.endTime-this.touch.startTime < this.touch.allowedTime) {
+          this.reinitTouch()
+          this.$router.push('/prestations')
+        }
+      },
+      reinitTouch() {
+        this.touch.startX = this.touch.startY = this.touch.startTime = this.touch.endX = this.touch.endY = this.touch.endTime = 0
       }
     }
   }
