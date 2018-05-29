@@ -114,10 +114,7 @@
 </script>
 
 <style lang="scss" scoped>
-  $sm: 600px;
-
-  $padding_xl: 10%;
-  $padding_sm: 2.5%;
+  @import "~/assets/css/_vars.scss";
 
   .prestations {
     grid-area: content;

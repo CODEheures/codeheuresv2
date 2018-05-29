@@ -42,12 +42,8 @@
 </script>
 
 <style lang="scss" scoped>
-  $color-yellow : #ffee7b;
+  @import "~/assets/css/_vars.scss";
 
-  $sm: 600px;
-
-  $padding_xl: 10%;
-  $padding_sm: 2.5%;
 
   header {
     z-index: 2;

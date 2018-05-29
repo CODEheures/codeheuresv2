@@ -132,8 +132,8 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "~/assets/css/_vars.scss";
 
-  $color_dark_green: #2e4c4c;
 
   .grid-prestation {
     display: grid;

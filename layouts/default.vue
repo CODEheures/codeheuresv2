@@ -31,7 +31,7 @@
 
 <style lang="scss">
 
-  $maxWidth: 1600px;
+  @import "~/assets/css/_vars.scss";
 
   html {
     font-family: "Open sans", serif;
@@ -87,7 +87,7 @@
     .grid-main {
       grid-area: all;
       display: grid;
-      grid-template-columns: minmax(auto, $maxWidth);
+      grid-template-columns: minmax(auto, $gridMainMaxWidth);
       grid-template-rows: 100px 1fr;
       grid-template-areas: "header" "content";
       align-content: start;

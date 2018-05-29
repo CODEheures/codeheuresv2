@@ -1,9 +1,6 @@
-$color-yellow : #ffee7b;
+@import "./_vars.scss";
 
-$xl: 80%;
-$sm: 95%;
 
-$transition_duration: 0.4s;
 ::selection {
   background: rgba(0,156,222,.15);
   text-shadow: none;
