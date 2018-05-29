@@ -48,14 +48,16 @@
 
   $padding_xl: 10%;
   $padding_sm: 2.5%;
+
   header {
     z-index: 2;
     grid-area: header;
     align-items: center;
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: auto auto;
+    grid-column-gap: 10px;
+    justify-content: space-between;
     transition: all 0.8s ease-out;
-    height: 100px;
 
     padding-left: $padding_xl;
     padding-right: $padding_xl;
@@ -66,23 +68,18 @@
     }
 
     & div.logo {
-      grid-column: 1 / span 6;
+      grid-column: 1;
       max-height: 100%;
-      padding: 10px;
 
       & img {
         max-height: 80px;
         max-width: 100%;
         transition: all 0.8s ease-out;
-      }
 
-      @media (max-width: 600px) {
-        grid-column: 1 / span 10;
-        & img {
+        @media (max-width: 600px) {
           max-height: 50px;
         }
       }
-
     }
 
     & div.hamburger {
@@ -91,15 +88,13 @@
 
       @media (max-width: 600px) {
         display: inline-block;
-        grid-column: 11 / span 2;
-        text-align: end;
-        padding-right: 15px;
+        grid-column: 2;
       }
 
     }
 
     nav {
-      grid-column: 7 / span 6;
+      grid-column: 2;
       text-align: end;
 
       & a {
@@ -120,13 +115,15 @@
       @media (max-width: 600px) {
         opacity: 0;
         display: grid;
-        height: 0%;
+        max-height: 0;
         background: #222;
         width: 100%;
-        grid-column: 1 /span 12;
+        grid-column: 1 /span 2;
         z-index: 2;
         overflow-y: hidden;
-        transition: all 0.8s;
+        transition: max-height 1.8s ease-out;
+        position: absolute;
+        top: 65px;
         & a {
           font-size: 2rem;
           border-bottom: 1px solid #333;
@@ -138,8 +135,7 @@
         &.opened-mobile {
           //visibility: visible;
           opacity: 1;
-          height: 100%;
-
+          max-height: 500px;
         }
       }
     }
@@ -147,7 +143,15 @@
     &.shrink {
       background: #222;
       height: 60px;
-
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin-right: auto;
+      margin-left: auto;
+      width: 100%;
+      grid-area: unset;
+      box-shadow: 0px 5px 11px 0px rgba(38, 33, 33, 0.67);
       & div.logo img {
         max-height: 40px;
       }
