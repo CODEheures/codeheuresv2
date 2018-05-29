@@ -36,23 +36,23 @@
       }
     },
     mounted () {
-      document.addEventListener('wheel', this.handleWheel, {passive: true})
-      document.addEventListener('touchstart', this.handleTouchStart, {passive: true})
-      document.addEventListener('touchend', this.handleTouchEnd, {passive: true})
-    },
-    beforeDestroy () {
-      document.removeEventListener('wheel', this.handleWheel);
-      document.removeEventListener('touchstart', this.handleTouchStart)
-      document.removeEventListener('touchend', this.handleTouchEnd)
-    },
-    destroyed () {
-
+      let screen = document.querySelector('div.screen.index')
+      console.log(screen)
+      screen.addEventListener('wheel', this.handleWheel, true)
+      screen.addEventListener('touchstart', this.handleTouchStart, {passive: true})
+      screen.addEventListener('touchend', this.handleTouchEnd, {passive: true})
     },
     methods: {
       handleWheel (event) {
+        event.preventDefault()
+        event.stopPropagation()
+        let screen = document.querySelector('div.screen.index')
+        screen.removeEventListener('wheel', this.handleWheel, true)
+
         if(event.deltaY > 0) {
-          this.$router.push('/prestations')
+          setTimeout( () => { this.$router.push('/prestations') }, 150)
         }
+        return false;
       },
       handleTouchStart (event) {
         this.reinitTouch()
@@ -70,8 +70,10 @@
         this.touch.endY = touchobj.pageY
         this.touch.endTime = new Date().getTime() // record time when finger first makes contact with surface
         if(this.touch.startY-this.touch.endY >= this.touch.thresholdY && this.touch.endTime-this.touch.startTime < this.touch.allowedTime) {
-          this.reinitTouch()
-          this.$router.push('/prestations')
+          let screen = document.querySelector('div.screen.index')
+          screen.removeEventListener('touchstart', this.handleTouchStart, {passive: true})
+          screen.removeEventListener('touchend', this.handleTouchEnd, {passive: true})
+          setTimeout( () => { this.$router.push('/prestations') }, 150)
         }
       },
       reinitTouch() {
