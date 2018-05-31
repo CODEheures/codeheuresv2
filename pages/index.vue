@@ -21,7 +21,7 @@
   export default {
     transition (to, from) {
       if (to && to.name === 'index') {
-        console.log('slide all to up index')
+        console.log('slide all down to index')
         return {name: 'slide-all-to-down', mode: ''}
       } else {
 
@@ -40,16 +40,20 @@
       document.addEventListener('touchstart', this.handleTouchStart, {passive: true, capture:true})
       document.addEventListener('touchend', this.handleTouchEnd, {passive: true, capture:true})
     },
+    beforeDestroy () {
+      let that = this
+      setTimeout(function () {
+        document.removeEventListener('wheel', that.handleWheel, {passive: false, capture:true})
+        document.removeEventListener('touchstart', that.handleTouchStart, {passive: true, capture:true})
+        document.removeEventListener('touchend', that.handleTouchEnd, {passive: true, capture:true})
+      },1000)
+    },
     methods: {
       handleWheel (event) {
         event.preventDefault()
         event.stopPropagation()
         if(event.deltaY > 0) {
           this.$router.push('/prestations')
-          let that = this
-          setTimeout(function () {
-            document.removeEventListener('wheel', that.handleWheel, {passive: false, capture:true})
-          },1000)
         }
         return false;
       },
@@ -70,11 +74,6 @@
         this.touch.endTime = new Date().getTime()
         if(this.touch.startY-this.touch.endY >= this.touch.thresholdY && this.touch.endTime-this.touch.startTime < this.touch.allowedTime) {
           this.$router.push('/prestations')
-          let that = this
-          setTimeout( function () {
-            document.removeEventListener('touchstart', that.handleTouchStart, {passive: true, capture:true})
-            document.removeEventListener('touchend', that.handleTouchEnd, {passive: true, capture:true})
-          }, 1000)
         }
       },
       reinitTouch() {

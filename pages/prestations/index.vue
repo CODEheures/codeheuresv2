@@ -96,7 +96,7 @@
     },
     transition (to, from) {
       if (from && from.name === 'index') {
-          console.log('slide all to up prestations')
+          console.log('slide all up to prestations')
           return {name: 'slide-all-to-up', mode: ''}
       } else {
 
