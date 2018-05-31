@@ -36,21 +36,20 @@
       }
     },
     mounted () {
-      let screen = document.querySelector('div.screen.index')
-      console.log(screen)
-      screen.addEventListener('wheel', this.handleWheel, true)
-      screen.addEventListener('touchstart', this.handleTouchStart, {passive: true})
-      screen.addEventListener('touchend', this.handleTouchEnd, {passive: true})
+      document.addEventListener('wheel', this.handleWheel, {passive: false, capture:true})
+      document.addEventListener('touchstart', this.handleTouchStart, {passive: true, capture:true})
+      document.addEventListener('touchend', this.handleTouchEnd, {passive: true, capture:true})
     },
     methods: {
       handleWheel (event) {
         event.preventDefault()
         event.stopPropagation()
-        let screen = document.querySelector('div.screen.index')
-        screen.removeEventListener('wheel', this.handleWheel, true)
-
         if(event.deltaY > 0) {
-          setTimeout( () => { this.$router.push('/prestations') }, 150)
+          this.$router.push('/prestations')
+          let that = this
+          setTimeout(function () {
+            document.removeEventListener('wheel', that.handleWheel, {passive: false, capture:true})
+          },1000)
         }
         return false;
       },
@@ -68,12 +67,14 @@
         let touchobj = event.changedTouches[0]
         this.touch.endX = touchobj.pageX
         this.touch.endY = touchobj.pageY
-        this.touch.endTime = new Date().getTime() // record time when finger first makes contact with surface
+        this.touch.endTime = new Date().getTime()
         if(this.touch.startY-this.touch.endY >= this.touch.thresholdY && this.touch.endTime-this.touch.startTime < this.touch.allowedTime) {
-          let screen = document.querySelector('div.screen.index')
-          screen.removeEventListener('touchstart', this.handleTouchStart, {passive: true})
-          screen.removeEventListener('touchend', this.handleTouchEnd, {passive: true})
-          setTimeout( () => { this.$router.push('/prestations') }, 150)
+          this.$router.push('/prestations')
+          let that = this
+          setTimeout( function () {
+            document.removeEventListener('touchstart', that.handleTouchStart, {passive: true, capture:true})
+            document.removeEventListener('touchend', that.handleTouchEnd, {passive: true, capture:true})
+          }, 1000)
         }
       },
       reinitTouch() {
