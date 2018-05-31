@@ -37,15 +37,15 @@
     },
     mounted () {
       document.addEventListener('wheel', this.handleWheel, {passive: false, capture:true})
-      document.addEventListener('touchstart', this.handleTouchStart, {passive: true, capture:true})
-      document.addEventListener('touchend', this.handleTouchEnd, {passive: true, capture:true})
+      document.addEventListener('touchstart', this.handleTouchStart, {passive: false, capture:true})
+      document.addEventListener('touchend', this.handleTouchEnd, {passive: false, capture:true})
     },
     beforeDestroy () {
       let that = this
       setTimeout(function () {
         document.removeEventListener('wheel', that.handleWheel, {passive: false, capture:true})
-        document.removeEventListener('touchstart', that.handleTouchStart, {passive: true, capture:true})
-        document.removeEventListener('touchend', that.handleTouchEnd, {passive: true, capture:true})
+        document.removeEventListener('touchstart', that.handleTouchStart, {passive: false, capture:true})
+        document.removeEventListener('touchend', that.handleTouchEnd, {passive: false, capture:true})
       },1000)
     },
     methods: {
@@ -73,6 +73,8 @@
         this.touch.endY = touchobj.pageY
         this.touch.endTime = new Date().getTime()
         if(this.touch.startY-this.touch.endY >= this.touch.thresholdY && this.touch.endTime-this.touch.startTime < this.touch.allowedTime) {
+          event.preventDefault()
+          event.stopPropagation()
           this.$router.push('/prestations')
         }
       },

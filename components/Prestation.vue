@@ -143,8 +143,6 @@
 
     align-content: start;
 
-    color: $color_dark_green;
-
 
     & .title {
       grid-column: 1 / span 2;

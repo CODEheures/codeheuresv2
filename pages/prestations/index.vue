@@ -99,7 +99,7 @@
           console.log('slide all up to prestations')
           return {name: 'slide-all-to-up', mode: ''}
       } else {
-
+        return {name: 'slide-all-to-down', mode: ''}
       }
     },
     asyncData(context) {

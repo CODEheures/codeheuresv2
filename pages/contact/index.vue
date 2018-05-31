@@ -1,19 +1,15 @@
 <template>
-  <div class="contact">
-    <p>contact</p>
-    <nuxt-link to="/">Accueil</nuxt-link>
-  </div>
+  <article class="contact">
+    <div class="title">
+      <h1><i class="fas fa-quote-left"></i>Me contacter</h1>
+    </div>
+  </article>
 </template>
 
 <script>
   export  default {
     transition (to, from) {
-      if (to && to.name === 'index') {
-        console.log('slide all down to index')
-        return {name: 'slide-all-to-down', mode: ''}
-      } else {
-
-      }
+      return {name: 'slide-all-to-up', mode: ''}
     },
     asyncData(context) {
       return {
