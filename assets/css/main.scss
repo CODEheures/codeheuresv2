@@ -6,6 +6,14 @@
   text-shadow: none;
 }
 
+input[type="submit"] {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  transition-property: all;
+  transition-duration: .5s;
+}
+
 a {
   display: inline-block;
   color: $color-yellow;
@@ -44,6 +52,7 @@ article {
 .btn-yellow {
   background-color: $color-yellow;
   color: #000;
+  border: 0.1rem solid $color-yellow;
 
   &:hover {
     background-color: transparent;
@@ -55,11 +64,12 @@ article {
   &.hover2:hover {
     background-color: transparent;
     color: #2e4c4c;
+    border: .1rem solid;
     border-color: #2e4c4c;
   }
 }
 
-div:not(.index) article {
+:not(.index) article {
   color: $color_dark_green;
 }
 
@@ -76,6 +86,12 @@ div:not(.index) article {
       text-decoration: underline;
     }
   }
+}
+
+#mini-toastr .mini-toastr__notification {
+  opacity: 1;
+  font-size: 1.2rem;
+  width: 350px;
 }
 
 /**

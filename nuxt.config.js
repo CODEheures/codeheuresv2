@@ -44,8 +44,10 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    vendor: ['axios', 'vue-notifications', 'mini-toastr']
   },
+  plugins: [{src:'~/plugins/vue-notifications', ssr: false}],
   /*
   ** Router
    */

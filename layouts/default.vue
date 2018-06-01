@@ -34,7 +34,7 @@
   @import "~/assets/css/_vars.scss";
 
   html {
-    font-family: "Open sans", serif;
+    font-family: "Open sans", sans-serif;
     font-size: 62.5%;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
