@@ -5,13 +5,19 @@
     </div>
     <p>Vous souhaitez des renseignements sur les prestations, un devis ou un avis sur un besoin en webmastering?
       Laissez-moi votre message avec votre adresse mail et éventuellement un numéro de téléphone par lequel je pourrai vous recontacter. </p>
-    <form method="POST" action="#" accept-charset="UTF-8">
+    <form method="POST" action="#" accept-charset="UTF-8" @change="tests" @keyup="tests">
       <input name="_token" type="hidden" value="WDTDXseAgDGNxQyAls8O5yOO9gGYwqt1TTyBgzwv">
-      <label for="email">Votre email</label>
-      <input id="email" name="email" type="email" placeholder="Ex: jack.sparrow@pearl.bl">
-      <label for="message">message</label>
-      <textarea  id="message" rows="6" name="content" cols="50" placeholder="Votre message ici..."></textarea>
-      <input type="submit" class="btn-yellow hover2" value="Envoyer le message" v-on:click.prevent.stop="submitMe">
+      <div class="form-group">
+        <input :class="{valid: emailValid, invalid: emailInvalid}" id="email" name="email" type="email" placeholder="Votre email" ref="email" :required="!(emailValid || emailInvalid)" >
+        <label for="email">Votre email</label>
+        <span class="help-text"></span>
+      </div>
+      <div class="form-group">
+        <textarea :class="{valid: messageValid, invalid: messageInvalid}"  id="message" rows="6" name="content" cols="50" placeholder="Votre message ici..." ref="message" :required="!(messageValid || messageInvalid)" ></textarea>
+        <label for="message">Votre message</label>
+        <span class="help-text"></span>
+      </div>
+      <input type="submit" class="btn-yellow hover2" value="Envoyer le message" v-on:click.prevent.stop="submitMe" :disabled="isSendOnce || !emailValid || !messageValid">
     </form>
   </article>
 </template>
@@ -28,23 +34,64 @@
         name: process.static ? 'static' : (process.server ? 'server' : 'client')
       }
     },
+    data () {
+      return {
+        isSendOnce: false,
+        emailValid: false,
+        emailInvalid: false,
+        messageValid: false,
+        messageInvalid: false
+      }
+    },
     head: {
       title: 'Contact page'
     },
     methods: {
       submitMe () {
-        let that = this
-        let contactRoute = 'http://localhost:8000/contact'
-        console.log(contactRoute)
-        axios.post(contactRoute,
-          {'email': 'gagnot@laposte.net', 'message': 'Hello mon chere watson'})
-          .then(function (response) {
-            that.messageSendSuccess()
-          })
-          .catch(function (error) {
-            console.log(error.response.data)
-            that.messageSendError({message: error.response.data.errors.message[0]})
-          })
+        if (!this.isSendOnce) {
+          let that = this
+          let contactRoute = 'http://localhost:8000/contact'
+          axios.post(contactRoute,
+            {'email': that.$refs.email.value, 'message': that.$refs.message.value})
+            .then(function (response) {
+              that.messageSendSuccess()
+              that.isSendOnce = true
+            })
+            .catch(function (error) {
+              try {
+                that.messageSendError({message: error.response.data.errors.message[0]})
+              } catch (e) {
+                that.messageSendError()
+              }
+            })
+        } else {
+          this.messageAlreadySended()
+        }
+      },
+      tests () {
+        this.testEmail()
+        this.testTextarea()
+      },
+      testEmail () {
+        let value = this.$refs.email.value;
+        if (value === undefined || value === null || value.length === 0) {
+          this.emailValid = false;
+          this.emailInvalid = false;
+        } else {
+          let regexRFC5322 = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
+          this.emailValid = regexRFC5322.test(value);
+          this.emailInvalid = !this.emailValid
+        }
+      },
+      testTextarea () {
+        let value = this.$refs.message.value;
+        if (value === undefined || value === null || value.length === 0 ) {
+          this.messageValid = false;
+          this.messageInvalid = false;
+        } else {
+          this.messageValid = value.length >= 10;
+          this.messageInvalid = !this.messageValid
+        }
       }
     },
     notifications: {
@@ -57,6 +104,12 @@
       messageSendError: { // You can have any name you want instead of 'showLoginError'
         title: 'Erreur pendant l\'envoi du message',
         message: 'Oupss!! Votre message n\'a pas pû être envoyé...',
+        type: 'warn', // You also can use 'VueNotifications.types.error' instead of 'error'
+        timeout: 5000
+      },
+      messageAlreadySended: { // You can have any name you want instead of 'showLoginError'
+        title: 'Message déjà envoyé',
+        message: 'Vous avez déjà envoyé un message',
         type: 'warn', // You also can use 'VueNotifications.types.error' instead of 'error'
         timeout: 5000
       }
@@ -78,20 +131,6 @@
     padding-left: $padding_xl;
     padding-right: $padding_xl;
     padding-top: 2rem;
-
-    & form {
-      display: grid;
-      max-width: 600px;
-      grid-template-columns: auto 1fr;
-      grid-gap: 1rem;
-      align-content: start;
-
-      & input[type="submit"] {
-        grid-column: 1 / span 2;
-        justify-self: end;
-      }
-    }
-
     @media (max-width: $sm) {
       padding-left: $padding_sm;
       padding-right: $padding_sm;
