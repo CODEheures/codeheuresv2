@@ -138,7 +138,7 @@
     }
 
     &.shrink {
-      background: #222;
+      background: $color_back_header_footer;
       height: 60px;
       position: fixed;
       top: 0;

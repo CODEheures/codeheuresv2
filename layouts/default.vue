@@ -9,16 +9,19 @@
       <app-header />
       <nuxt/>
     </div>
+    <app-footer v-if="page !== 'index'"/>
   </div>
 </template>
 
 <script>
-  import appHeader from '~/components/appHeader.vue'
+  import appHeader from '~/components/AppHeader.vue'
+  import appFooter from '~/components/AppFooter.vue'
   import { mapState } from 'vuex'
 
   export default {
     components: {
-      appHeader
+      appHeader,
+      appFooter
     },
     asyncData(context) {
       return {
@@ -57,13 +60,15 @@
     display: grid;
     width: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "all";
     min-height: 100vh;
     background: url("~/assets/images/background3.png") repeat fixed;
     background-color: #fff;
 
+    grid-template-rows: auto min-content;
+    grid-template-areas: "all" "footer";
     &.index {
+      grid-template-rows: 1fr;
+      grid-template-areas: "all";
       height: 100vh;
     }
 

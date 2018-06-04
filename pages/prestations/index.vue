@@ -101,13 +101,8 @@
         return {name: 'slide-all-to-down', mode: ''}
       }
     },
-    asyncData(context) {
-      return {
-        name: process.static ? 'static' : (process.server ? 'server' : 'client'),
-      }
-    },
     head: {
-      title: 'Prestations page'
+      title: 'Prestations en création de sites web et maintenance internet'
     }
   }
 </script>

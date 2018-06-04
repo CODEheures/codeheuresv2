@@ -29,11 +29,6 @@
     transition (to, from) {
       return {name: 'slide-all-to-up', mode: ''}
     },
-    asyncData(context) {
-      return {
-        name: process.static ? 'static' : (process.server ? 'server' : 'client')
-      }
-    },
     data () {
       return {
         isSendOnce: false,
@@ -44,7 +39,7 @@
       }
     },
     head: {
-      title: 'Contact page'
+      title: 'Contactez votre Webmaster, développeur web'
     },
     methods: {
       submitMe () {

@@ -79,14 +79,6 @@
 
 <script>
   export  default {
-    transition (to, from) {
-      if (from && from.name === 'index') {
-          console.log('slide all to up prestations')
-          return {name: 'slide-all-to-up', mode: ''}
-      } else {
-
-      }
-    },
     props: {
       h1: {type: String, required: false},
       card: {type: Object, required: false},
@@ -99,14 +91,6 @@
       return {
         visible: false
       }
-    },
-    asyncData(context) {
-      return {
-        name: process.static ? 'static' : (process.server ? 'server' : 'client')
-      }
-    },
-    head: {
-      title: 'Prestations page'
     },
     mounted () {
       if (this.card !== undefined){
