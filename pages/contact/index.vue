@@ -1,5 +1,5 @@
 <template>
-  <article class="contact">
+  <article class="content-type1">
     <div class="title">
       <h1><i class="fas fa-quote-left"></i>Me contacter</h1>
     </div>
@@ -116,24 +116,3 @@
     }
   }
 </script>
-
-<style lang="scss" scoped>
-  @import "~/assets/css/_vars.scss";
-
-  .contact {
-    grid-area: content;
-    display: grid;
-    grid-row-gap: 4rem;
-
-    max-width: 100%;
-    align-content: start;
-
-    padding-left: $padding_xl;
-    padding-right: $padding_xl;
-    padding-top: 2rem;
-    @media (max-width: $sm) {
-      padding-left: $padding_sm;
-      padding-right: $padding_sm;
-    }
-  }
-</style>

@@ -134,11 +134,6 @@ a {
   text-decoration: none !important;
 }
 
-article {
-  font-size: 1.8rem;
-  font-weight: 300;
-}
-
 .btn-transparent {
   border: .1rem solid $color-yellow;
   color: $color-yellow;
@@ -185,6 +180,29 @@ article {
     & i {
       text-decoration: underline;
     }
+  }
+}
+
+article {
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.content-type1 {
+  grid-area: content;
+  display: grid;
+  grid-row-gap: 4rem;
+
+  max-width: 100%;
+  align-content: start;
+
+  padding-left: $padding_xl;
+  padding-right: $padding_xl;
+  padding-top: 2rem;
+
+  @media (max-width: $sm) {
+    padding-left: $padding_sm;
+    padding-right: $padding_sm;
   }
 }
 

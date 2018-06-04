@@ -1,5 +1,5 @@
 <template>
-  <div class="prestations">
+  <div class="content-type1">
     <prestation
       h1="Création de sites internet vitrine, commerce ou pro"
       :card="{
@@ -96,7 +96,6 @@
     },
     transition (to, from) {
       if (from && from.name === 'index') {
-          console.log('slide all up to prestations')
           return {name: 'slide-all-to-up', mode: ''}
       } else {
         return {name: 'slide-all-to-down', mode: ''}
@@ -112,28 +111,3 @@
     }
   }
 </script>
-
-<style lang="scss" scoped>
-  @import "~/assets/css/_vars.scss";
-
-  .prestations {
-    grid-area: content;
-    display: grid;
-    grid-row-gap: 4rem;
-
-    max-width: 100%;
-    align-content: start;
-
-    padding-left: $padding_xl;
-    padding-right: $padding_xl;
-    padding-top: 2rem;
-
-
-    @media (max-width: $sm) {
-      padding-left: $padding_sm;
-      padding-right: $padding_sm;
-    }
-  }
-
-
-</style>

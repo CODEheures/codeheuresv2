@@ -131,7 +131,7 @@
       letter-spacing: .2rem;
       text-transform: uppercase;
       font-weight: 600;
-      @media (max-width: 600px) {
+      @media (max-width: $sm) {
         font-size: 3.5rem;
       }
     }
@@ -142,7 +142,7 @@
       line-height: 2.4rem;
       font-size: 1.8rem;
       font-weight: 300;
-      @media (max-width: 600px) {
+      @media (max-width: $sm) {
         padding-top: 2rem;
       }
     }
@@ -150,7 +150,7 @@
     & p {
       &.action {
         margin-top: 4rem;
-        @media (max-width: 600px) {
+        @media (max-width: $sm) {
           display: grid;
           grid-row-gap: 10px;
         }

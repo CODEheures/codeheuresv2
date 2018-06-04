@@ -11,6 +11,7 @@
     <nav :class="'menu ' + mobileMenuClass">
       <nuxt-link exact to="/">Accueil</nuxt-link>
       <nuxt-link to="/prestations">Prestations</nuxt-link>
+      <nuxt-link to="/realisations">Réalisations</nuxt-link>
       <nuxt-link to="/contact">Contact</nuxt-link>
     </nav>
   </header>
@@ -72,7 +73,7 @@
         max-width: 100%;
         transition: all 0.8s ease-out;
 
-        @media (max-width: 600px) {
+        @media (max-width: $sm) {
           max-height: 50px;
         }
       }
@@ -82,7 +83,7 @@
       display: none;
       color: white;
 
-      @media (max-width: 600px) {
+      @media (max-width: $sm) {
         display: inline-block;
         grid-column: 2;
       }
@@ -108,7 +109,7 @@
         }
       }
 
-      @media (max-width: 600px) {
+      @media (max-width: $sm) {
         opacity: 0;
         display: grid;
         max-height: 0;
