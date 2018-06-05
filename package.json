@@ -4,6 +4,12 @@
   "description": "Codeheures.fr front by Nuxt",
   "author": "CODEheures <webmaster@codeheures.fr>",
   "private": true,
+  "config": {
+    "nuxt": {
+      "host": "127.0.0.1",
+      "port": "8000"
+    }
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
