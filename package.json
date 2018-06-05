@@ -16,6 +16,7 @@
     "axios": "^0.18.0",
     "mini-toastr": "^0.8.1",
     "nuxt": "^1.0.0",
+    "url": "^0.11.0",
     "vue-notifications": "^0.9.0"
   },
   "devDependencies": {

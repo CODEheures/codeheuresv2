@@ -23,11 +23,6 @@
       appHeader,
       appFooter
     },
-    asyncData(context) {
-      return {
-        name: process.static ? 'static' : (process.server ? 'server' : 'client'),
-      }
-    },
     computed: mapState(['page'])
   }
 </script>

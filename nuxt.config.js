@@ -21,7 +21,7 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#ffee7b' },
   /*
   ** CSS
    */
@@ -45,7 +45,7 @@ module.exports = {
         })
       }
     },
-    vendor: ['axios', 'vue-notifications', 'mini-toastr']
+    vendor: ['axios', 'vue-notifications', 'mini-toastr', 'url']
   },
   plugins: [{src:'~/plugins/vue-notifications', ssr: false}],
   /*
@@ -53,5 +53,18 @@ module.exports = {
    */
   router: {
     middleware: 'pages'
+  },
+
+  /*
+  ** ENV
+   */
+  env: {
+    api: {
+      subdomain: 'api',
+      port: '3001',
+      routes: {
+        contact: {path: '/contact', method: 'post'}
+      }
+    }
   }
 }

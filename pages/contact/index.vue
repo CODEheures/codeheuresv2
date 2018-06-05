@@ -24,6 +24,7 @@
 
 <script>
   import axios from 'axios'
+  import Url from 'url'
 
   export  default {
     transition (to, from) {
@@ -43,11 +44,16 @@
     },
     methods: {
       submitMe () {
+        let myUrl = Url.parse(window.location.href)
+        let contactRoute = myUrl.protocol + '//' + process.env.api.subdomain + '.' + myUrl.hostname + ':' + process.env.api.port + process.env.api.routes.contact.path
+        let contactMethod = process.env.api.routes.contact.method
         if (!this.isSendOnce) {
           let that = this
-          let contactRoute = 'http://localhost:8000/contact'
-          axios.post(contactRoute,
-            {'email': that.$refs.email.value, 'message': that.$refs.message.value})
+          axios({
+              method: contactMethod,
+              url: contactRoute,
+              data: {'email': that.$refs.email.value, 'message': that.$refs.message.value}
+            })
             .then(function (response) {
               that.messageSendSuccess()
               that.isSendOnce = true
