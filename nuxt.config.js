@@ -61,7 +61,7 @@ module.exports = {
   env: {
     api: {
       subdomain: 'api',
-      port: '3001',
+      port: '8001',
       routes: {
         contact: {path: '/contact', method: 'post'}
       }
