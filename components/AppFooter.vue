@@ -15,7 +15,7 @@
       <p>8h-12h | 14h-18h</p>
     </div>
     <div class="copyright">
-      <p><img src="https://codeheures.fr/images/codeheures-court.svg"><span class="htmlentity">©</span>2015 CODEheures<span class="logo"></span></p>
+      <p><img src="~/assets/images/codeheures-court.svg"><span class="htmlentity">©</span>2015 CODEheures<span class="logo"></span></p>
     </div>
   </footer>
 </template>
