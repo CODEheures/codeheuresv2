@@ -47,13 +47,19 @@
 
 
   header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 2;
-    grid-area: header;
-    align-items: center;
+    height: 100px;
+
+
     display: grid;
     grid-template-columns: auto auto;
     grid-column-gap: 10px;
     justify-content: space-between;
+    align-items: center;
     transition: all 0.8s ease-out;
 
     padding-left: $padding_xl;

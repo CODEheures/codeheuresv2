@@ -6,8 +6,8 @@
   "private": true,
   "config": {
     "nuxt": {
-      "host": "127.0.0.1",
-      "port": "8000"
+      "host": "0.0.0.0",
+      "port": "3000"
     }
   },
   "scripts": {
@@ -21,7 +21,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "mini-toastr": "^0.8.1",
-    "nuxt": "^1.0.0",
+    "nuxt": "^1.4.1",
     "url": "^0.11.0",
     "vue-notifications": "^0.9.0"
   },

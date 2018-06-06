@@ -1,5 +1,6 @@
 <template>
-  <div class="grid-content">
+  <div :class="{screen: true, iphone: isIphone}">
+    <div class="overlay"></div>
     <article>
       <h1>Créations de sites internet</h1>
       <h2>
@@ -23,8 +24,11 @@
       if (to && to.name === 'index') {
         console.log('slide all down to index')
         return {name: 'slide-all-to-down', mode: ''}
-      } else {
-
+      }
+    },
+    asyncData (context) {
+      return {
+        isIphone: (context.userAgent).search(/iphone/i) !== -1
       }
     },
     head: {
@@ -88,21 +92,36 @@
 <style lang="scss" scoped>
   @import "~/assets/css/_vars.scss";
 
-  .grid-content {
-    grid-area: content;
+  .screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: black;
+    background-image: url("~/assets/images/2.jpg");
+    background-size: cover;
+
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 100px;
-    grid-template-areas: "body" "footer";
-    padding-left: $padding_xl;
-    padding-right: $padding_xl;
+    grid-template-rows: 100px 1fr 100px;
+    &.iphone {
+      grid-template-rows: 100px 1fr 160px;
+    }
+
+    grid-template-areas: "header" "body" "footer";
     max-height: 100vh;
 
-
-    @media (max-width: $sm) {
-      padding-left: $padding_sm;
-      padding-right: $padding_sm;
+    & .overlay {
+      grid-column: 1;
+      grid-row: 1 / span 3;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.75);
     }
+
+
   }
 
   @keyframes to-down {
@@ -118,12 +137,21 @@
   }
 
   article {
+    //z-index: 2;
     grid-area: body;
     align-items: center;
     display: grid;
     text-align: center;
     align-content: center;
     color: white;
+
+    padding-left: $padding_xl;
+    padding-right: $padding_xl;
+    @media (max-width: $sm) {
+      padding-left: $padding_sm;
+      padding-right: $padding_sm;
+    }
+
 
     & h1 {
       font-size: 4.6rem;
@@ -133,6 +161,7 @@
       font-weight: 600;
       @media (max-width: $sm) {
         font-size: 3.5rem;
+        line-height: 4rem;
       }
     }
 
@@ -160,6 +189,7 @@
   }
 
   footer {
+    z-index: 2;
     grid-area: footer;
     text-align: center;
 
