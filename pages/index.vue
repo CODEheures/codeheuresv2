@@ -108,6 +108,10 @@
     grid-template-rows: 100px 1fr 100px;
     &.iphone {
       grid-template-rows: 100px 1fr 160px;
+
+      & footer {
+        padding-bottom: 10px;
+      }
     }
 
     grid-template-areas: "header" "body" "footer";
@@ -182,6 +186,7 @@
         @media (max-width: $sm) {
           display: grid;
           grid-row-gap: 10px;
+          margin-top: 2rem;
         }
       }
     }
@@ -192,6 +197,9 @@
     z-index: 2;
     grid-area: footer;
     text-align: center;
+    align-content: end;
+    align-items: end;
+    display: grid;
 
     & a {
       text-decoration: none;
