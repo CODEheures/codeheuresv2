@@ -52,7 +52,7 @@
     left: 0;
     right: 0;
     z-index: 2;
-    height: 100px;
+    height: $header_height;
 
 
     display: grid;
@@ -75,12 +75,12 @@
       max-height: 100%;
 
       & img {
-        max-height: 80px;
+        max-height: #{$header_height * 0.8};
         max-width: 100%;
         transition: all 0.8s ease-out;
 
         @media (max-width: $sm) {
-          max-height: 50px;
+          max-height: #{$header_height / 2};
         }
       }
     }
@@ -145,18 +145,14 @@
 
     &.shrink {
       background: $color_back_header_footer;
-      height: 60px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      height: $header_height_shrink;
       margin-right: auto;
       margin-left: auto;
       width: 100%;
       grid-area: unset;
       box-shadow: 0px 5px 11px 0px rgba(38, 33, 33, 0.67);
       & div.logo img {
-        max-height: 40px;
+        max-height: #{$header_height_shrink - 20px};
       }
     }
 

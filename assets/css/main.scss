@@ -63,6 +63,7 @@ form {
       width: 100%;
       padding: 0.5rem 1rem;
       font-family: "Open Sans", sans-serif;
+      font-size: 16px;
       margin: 0;
 
       background-repeat: no-repeat;
@@ -225,16 +226,19 @@ article {
 }
 
 .content-type1 {
-  grid-area: content;
+  grid-area: body;
   display: grid;
   grid-row-gap: 4rem;
 
-  max-width: 100%;
+  max-width: $gridMainMaxWidth;
+  justify-self: center;
+
   align-content: start;
 
   padding-left: $padding_xl;
   padding-right: $padding_xl;
   padding-top: 2rem;
+  padding-bottom: 4rem;
 
   @media (max-width: $sm) {
     padding-left: $padding_sm;

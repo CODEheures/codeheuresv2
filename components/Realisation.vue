@@ -37,6 +37,9 @@
     box-shadow: 0 0 2rem 0 rgba(0,0,0,.5);
     background-color: #fff;
     padding-bottom: 1rem;
+
+    margin-left: 1rem;
+    margin-right: 1rem;
     margin-bottom: 2rem;
 
     & h2 {

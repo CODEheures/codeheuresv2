@@ -105,9 +105,9 @@
 
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 100px 1fr 100px;
+    grid-template-rows: $header_height_shrink 1fr $footer_height;
     &.iphone {
-      grid-template-rows: 100px 1fr 160px;
+      grid-template-rows: $header_height_shrink 1fr $footer_height_iphone;
 
       & footer {
         padding-bottom: 10px;
@@ -116,6 +116,7 @@
 
     grid-template-areas: "header" "body" "footer";
     max-height: 100vh;
+    align-content: space-between;
 
     & .overlay {
       grid-column: 1;
