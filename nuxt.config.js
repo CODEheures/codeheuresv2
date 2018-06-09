@@ -45,6 +45,13 @@ module.exports = {
         })
       }
     },
+    babel: {
+      presets({ isServer }) {
+        return [
+          ['vue-app', { targets: isServer ? { node: 'current' } : { browsers: ['>0.25%'] } }]
+        ]
+      }
+    },
     vendor: ['axios', 'vue-notifications', 'mini-toastr', 'url']
   },
   plugins: [{src:'~/plugins/vue-notifications', ssr: false}],
