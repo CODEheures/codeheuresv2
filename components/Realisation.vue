@@ -32,7 +32,12 @@
     grid-template-columns: 1fr;
     grid-template-rows: 40px auto 1fr auto;
     align-content: start;
-    width: 350px;
+    width: 300px;
+
+    @media (min-width: $xsm) {
+      width: 350px;
+    }
+
     border-radius: $border_radius;
     box-shadow: 0 0 2rem 0 rgba(0,0,0,.5);
     background-color: #fff;
@@ -55,7 +60,10 @@
 
     & img {
       max-width: 100%;
-      height: 20.1rem;
+      height: 172px;
+      @media (min-width: $xsm) {
+        height: 201px;
+      }
       justify-self: center;
     }
 
