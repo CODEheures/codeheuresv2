@@ -88,6 +88,7 @@
     & div.hamburger {
       display: none;
       color: white;
+      cursor: pointer;
 
       @media (max-width: $sm) {
         display: inline-block;
@@ -122,7 +123,7 @@
         background: #222;
         width: 100%;
         grid-column: 1 /span 2;
-        z-index: 2;
+        z-index: 20;
         overflow-y: hidden;
         transition: max-height 1.8s ease-out;
         position: absolute;
