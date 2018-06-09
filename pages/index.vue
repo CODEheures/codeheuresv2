@@ -105,13 +105,13 @@
 
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: $header_height_shrink 1fr $footer_height;
+    grid-template-rows: $header_height 1fr auto;
     &.iphone {
-      grid-template-rows: $header_height_shrink 1fr $footer_height_iphone;
+      /*grid-template-rows: $header_height 1fr auto;*/
 
-      & footer {
-        padding-bottom: 10px;
-      }
+      /*& footer {*/
+        /*padding-bottom: 10px;*/
+      /*}*/
     }
 
     grid-template-areas: "header" "body" "footer";
@@ -210,6 +210,11 @@
       font-size: 1.5rem;
       overflow-y: hidden;
       animation: to-down 2s infinite;
+
+      & .fas {
+        height: 0.7em;
+        line-height: 0.7em;
+      }
     }
 
   }
