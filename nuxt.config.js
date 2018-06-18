@@ -68,7 +68,7 @@ module.exports = {
   env: {
     api: {
       subdomain: 'api',
-      port: '8001',
+      port: process.env.isDev === 'true' ? '8001' : '',
       routes: {
         contact: {path: '/contact', method: 'post'}
       }

@@ -45,7 +45,7 @@
     methods: {
       submitMe () {
         let myUrl = Url.parse(window.location.href)
-        let contactRoute = myUrl.protocol + '//' + process.env.api.subdomain + '.' + myUrl.hostname + ':' + process.env.api.port + process.env.api.routes.contact.path
+        let contactRoute = myUrl.protocol + '//' + process.env.api.subdomain + '.' + myUrl.hostname + (process.env.api.port.length > 0 ? ':' + process.env.api.port : '') + process.env.api.routes.contact.path
         let contactMethod = process.env.api.routes.contact.method
         if (!this.isSendOnce) {
           let that = this
