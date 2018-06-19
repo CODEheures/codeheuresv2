@@ -22,12 +22,14 @@
           title: 'à venir: Selfjob',
           img: 'selfjob.jpg',
           links: [
-            {innerText: 'Voir la vidéo', href: 'https://youtu.be/ZklNr5oyn4A'}
+            {innerText: 'Vidéo', href: 'https://youtu.be/ZklNr5oyn4A'},
+            {innerText: 'Nouveau site', href: 'https://selfjob.codeheures.fr'}
           ]
         }"
       >
-        <p slot="description" class="description">Cette future application, au format android et windows,  permet un recrutement sans CV basé sur l'affinité des personnalités.
-          <br>Réalisée avec <a class="a-invert-light" href="http://quasar-framework.org">Quasar</a> et <a class="a-invert-light" href="https://laravel.com">Laravel</a>
+        <p slot="description" class="description">Cette future application, permet un recrutement sans CV basé sur l'affinité des personnalités.
+          <br>Initialement réalisée avec <a class="a-invert-light" href="http://quasar-framework.org">Quasar</a> et <a class="a-invert-light" href="https://laravel.com">Laravel</a>
+          une nouvelle version utilisant l'excellent framework <a class="a-invert-light" href="https://vuetifyjs.com/en/">Vuetify</a> est en cours
         </p>
       </realisation>
     </div>
