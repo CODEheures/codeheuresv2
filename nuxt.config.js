@@ -52,6 +52,15 @@ module.exports = {
         ]
       }
     },
+    uglify: {
+      uglifyOptions: {
+        ie8: false,
+        ecma: 5,
+        mangle: {
+          safari10: true
+        }
+      }
+    },
     vendor: ['axios', 'vue-notifications', 'mini-toastr', 'url']
   },
   plugins: [{src:'~/plugins/vue-notifications', ssr: false}],
