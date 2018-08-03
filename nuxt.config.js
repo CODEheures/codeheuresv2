@@ -76,8 +76,8 @@ module.exports = {
    */
   env: {
     api: {
-      subdomain: 'api',
-      port: process.env.isDev === 'true' ? '8001' : '',
+      href_client: process.env.isDev === 'true' ? 'http://api.codeheures.test' : 'https://api.codeheures.fr',
+      href_server: 'http://api',
       routes: {
         contact: {path: '/contact', method: 'post'}
       }
