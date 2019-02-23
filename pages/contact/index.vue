@@ -3,7 +3,7 @@
     <div class="title">
       <h1><i class="fas fa-quote-left"></i>Me contacter</h1>
     </div>
-    <p>Vous souhaitez des renseignements sur les prestations, un devis ou un avis sur un besoin en webmastering?
+    <p>Vous souhaitez me contacter?
       Laissez-moi votre message avec votre adresse mail et éventuellement un numéro de téléphone par lequel je pourrai vous recontacter. </p>
     <form method="POST" action="#" accept-charset="UTF-8" @change="tests" @keyup="tests">
       <input name="_token" type="hidden" value="WDTDXseAgDGNxQyAls8O5yOO9gGYwqt1TTyBgzwv">
@@ -40,7 +40,7 @@
       }
     },
     head: {
-      title: 'Contactez votre Webmaster, développeur web'
+      title: 'Me contacter'
     },
     methods: {
       submitMe () {

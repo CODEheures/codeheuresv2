@@ -10,7 +10,7 @@
     </div>
     <nav :class="'menu ' + mobileMenuClass">
       <nuxt-link exact to="/">Accueil</nuxt-link>
-      <nuxt-link to="/prestations">Prestations</nuxt-link>
+      <nuxt-link to="/competences">Compétences</nuxt-link>
       <nuxt-link to="/realisations">Réalisations</nuxt-link>
       <nuxt-link to="/contact">Contact</nuxt-link>
     </nav>

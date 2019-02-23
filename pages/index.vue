@@ -2,18 +2,19 @@
   <div :class="{screen: true, iphone: isIphone}">
     <div class="overlay"></div>
     <article>
-      <h1>Créations de sites internet</h1>
+      <h1>WEBMASTER</h1>
+      <h1>Sites et applications WEB</h1>
+
       <h2>
-        Développeur WEB freelance, spécialiste <a href="https://laravel.com" title="création de sites internet avec backend laravel" target="_blank">Laravel</a> et <a href="https://vuejs.org" title="développement de sites web avec frontend vuejs" target="_blank">VueJS</a>
+        Développeur WEB, spécialiste <a href="https://symfony.com/" title="création de sites internet avec backend symfony" target="_blank">Symfony 4</a>, <a href="https://laravel.com" title="création de sites internet avec backend laravel" target="_blank">Laravel</a> et <a href="https://vuejs.org" title="développement de sites web avec frontend vuejs" target="_blank">VueJS</a>
       </h2>
-      <p>Création et maintenance de sites internets. Sous-traitance pour les agences web.</p>
       <p class="action">
-        <a class="btn-transparent" href="https://docs.google.com/forms/d/e/1FAIpQLScrk8x-0RMkt4xzhFYC0jiwbU_YNYElWBiosjyyItr7Nrb1BA/viewform" title="devis pour votre création de sites internet développés avec laravel et vuejs à Tours" target="_blank">Demander un devis en 3mn</a>
+        <a class="btn-transparent" href="https://fr.linkedin.com/in/sylvain-gagnot" title="Sites internet développés avec symfony, laravel et vuejs à Tours" target="_blank">Mon linkedIn</a>
         <nuxt-link to="/realisations" class="btn-yellow" title="webmaster sites internets">Réalisations</nuxt-link>
       </p>
     </article>
     <footer>
-      <nuxt-link to="/prestations" title="site développés avec laravel et vuejs à Tours"><span>En savoir plus</span><i class="fas fa-angle-down fa-5x"></i></nuxt-link>
+      <nuxt-link to="/competences" title="site développés avec laravel et vuejs à Tours"><span>En savoir plus</span><i class="fas fa-angle-down fa-5x"></i></nuxt-link>
     </footer>
   </div>
 </template>
@@ -57,7 +58,7 @@
         event.preventDefault()
         event.stopPropagation()
         if(event.deltaY > 0) {
-          this.$router.push('/prestations')
+          this.$router.push('/competences')
         }
         return false;
       },
@@ -79,7 +80,7 @@
         if(this.touch.startY-this.touch.endY >= this.touch.thresholdY && this.touch.endTime-this.touch.startTime < this.touch.allowedTime) {
           event.preventDefault()
           event.stopPropagation()
-          this.$router.push('/prestations')
+          this.$router.push('/competences')
         }
       },
       reinitTouch() {

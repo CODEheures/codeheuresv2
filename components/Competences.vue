@@ -36,23 +36,27 @@
     </aside>
     <div class="cost" v-if="withCost">
       <p>
-        Bonne question! <br>
-        Un développeur de sites internet ne code que 30% de son temps. Le reste du temps est consacré à la
-        formation, la veille technologique, mais aussi à la gestion, à la prospection, à la relation
-        client...<br>
-        <br>Vous pouvez chiffrer le coût d'un site web:
+        Bonne question! <br><br>
+        Ce site était à l'origine le site de ma société freelance à laquelle j'ai mis fin en décembre 2018.
+        Je l'utilise desormais comme un demonstrateur de mon savoir faire et une plateforme de tests (car pour la petite info celui-ci est développé en NUXT et tourne sur un docker routé avec traëfik)
+        <br/><br/>
+        Mes autres expériences sont multiples:<br/>
       </p>
       <ul class="circle">
         <li>
-          Entre 1000€ et 2500€ pour la création d'un site web vitrine simple
+          J'ai développé un site nommé destockeurope (le bon coin des pros pour vendre en lots), qui n'est plus en ligne et pour lequel j'ai aussi été co-dirigeant.
+          Malheureusement cette société n'a pas survécue.
         </li>
         <li>
-          Entre 2500€ et 8000€ (voir plus) pour le développement d'un site e-commerce ou d'une application internet mobile personnalisée
+          J'ai aussi tenté de monter une boutique en ligne qui n'a pas non plus
+          survécu longtemps à la concurrence.
+        </li>
+        <li>
+          J'ai fait plus de 10 ans de developpement logiciel dans l'indutrie de la CFAO.
         </li>
       </ul>
       <p>
-        <br />Cela dépend bien entendu du degré de personnalisation et de la compléxité du projet.<br>
-        <strong>La création d'un site internet est un investissement relativement important mais incontournable et très rentable.</strong>
+        <br />Ajourd'hui je suis développeur fullstack au sein d'une industrie en charge de l'intranet et de l'application de pilotage de la fabrication.<br>
       </p>
     </div>
     <p class="speech" v-if="speech !== undefined">
@@ -72,7 +76,7 @@
       </ul>
     </div>
     <div class="devis">
-      <a class="btn-yellow hover2" href="https://docs.google.com/forms/d/e/1FAIpQLScrk8x-0RMkt4xzhFYC0jiwbU_YNYElWBiosjyyItr7Nrb1BA/viewform" title="devis pour votre création de sites internet développés avec laravel et vuejs à Tours" target="_blank">Demander un devis en 3mn</a>
+      <a class="btn-yellow hover2" href="https://fr.linkedin.com/in/sylvain-gagnot" title="webmaster développeur fullstack symfony laravel php js" target="_blank">Mon linkedIN</a>
     </div>
   </article>
 </template>

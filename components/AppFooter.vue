@@ -1,21 +1,21 @@
 <template>
   <footer>
     <div class="infos">
-      <address>Sylvain Gagnot - CODEheures EIRL<br>1 rue Milhaud<br>37300 Joué-Lès-Tours</address>
+      <address>Sylvain Gagnot<br>1 rue Milhaud<br>37300 Joué-Lès-Tours</address>
       <p class="phone"><i class="ion-ios-telephone-outline"> </i>06.87.34.06.83</p>
       <p><i class="ion-ios-email-outline"> </i>webmaster@codeheures.fr</p>
     </div>
     <div class="legale">
       <div class="links">
         <nuxt-link to="/mentions-legales">mentions légales</nuxt-link>
-        <nuxt-link to="/conditions-generales-de-ventes">Conditions Générales de ventes</nuxt-link>
+        <a href="https://fr.linkedin.com/in/sylvain-gagnot">LinkedIN</a>
       </div>
       <hr>
-      <h3>Horaires:</h3>
-      <p>8h-12h | 14h-18h</p>
+      <h3>Compétences:</h3>
+      <p>PHP | JS | SYMFONY | LARAVEL | VUEJS | LINUX | DOCKER...</p>
     </div>
     <div class="copyright">
-      <p><img src="~/assets/images/codeheures-court.svg"><span class="htmlentity">©</span>2015 CODEheures<span class="logo"></span></p>
+      <p><img src="~/assets/images/codeheures-court.svg"><span class="htmlentity">©</span>2019 CODEheures<span class="logo"></span></p>
     </div>
   </footer>
 </template>

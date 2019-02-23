@@ -1,98 +1,98 @@
 <template>
   <div class="content-type1">
-    <prestation
-      h1="Création de sites internet vitrine, commerce ou pro"
+    <competence
+      h1="Compétence n°1: Développeur FullStack PHP/JS"
       :card="{
         img: 'card1.png',
-        alt: 'Développeur web internet avec laravel et vuejs à Tours 37',
-        p1: 'vitrine',
-        p2: 'e-commerce',
-        p3: 'professionnel',
+        alt: 'Développeur web internet avec symfony, laravel, vuejs, docker à Tours 37',
+        p1: 'Symfony',
+        p2: 'Laravel',
+        p3: 'PHP - JS',
         href: '/realisations',
-        linkTitle: 'sites internet développés avec laravel et vuejs à Tours',
+        linkTitle: 'sites internet développés avec symfony, laravel, vuejs, docker à Tours',
         innerText: 'Voir les réalisations'
       }"
       :digest="{
-        icon1: 'far fa-lightbulb',
-        icon2: 'fas fa-magic',
-        icon3: 'fas fa-cog',
-        txt1: 'vous avez une idée de création de site internet, mais vous ne possédez pas les compétences requises pour sa réalisation?',
-        txt2: 'Vous possédez un site internet que vous souhaitez moderniser?',
-        txt3: 'Vous souhaitez ajouter de nouvelles fonctionnalités à votre site internet?'
+        icon1: 'fas fa-magic',
+        icon2: 'fas fa-server',
+        icon3: 'fab fa-php',
+        txt1: 'Je crée des sites et application web en utilisant principalement symfony, laravel, drupal',
+        txt2: 'J\'installe et je déploie les sites web sur les serveurs linux ou windows',
+        txt3: 'Je développe backend et frontend avec PHP/JS'
       }"
       :speech="{
         href: '/',
-        linkTitle: 'site codeheures.fr. Agence web pour le développement de sites internet et sites mobiles à Tours 37.',
-        innerText: ' CODEheures.fr ',
+        linkTitle: 'Sylvain GAGNOT, développeur web à Tours 37.',
+        innerText: ' Sylvain GAGNOT ',
         txtBefore: '',
-        txtAfter: ' c\'est un savoir faire et des compétences <strong>au service du client</strong>'
+        txtAfter: ' compétences en PHP, JS, LINUX et Frameworks Symfony, Laravel, VueJS, Nuxt, Docker, Traëfik...'
       }"
       :priorities="{
-        h2: 'Mes priorités pour vous',
-        icon1: 'fas fa-balance-scale',
+        h2: 'Mes Atouts',
+        icon1: 'fas fa-graduation-cap',
         icon2: 'fas fa-rocket',
-        icon3: 'fas fa-magic',
-        txt1: 'Un juste prix calculé au plus proche de votre besoin.',
-        txt2: 'Un démarrage rapide du projet axé sur l\'obtention concrète.',
-        txt3: 'Une transformation de vos idées la plus précise possible en apparence, efficacité et ergonomie'
+        icon3: 'fab fa-raspberry-pi',
+        txt1: 'Une envie permanente d\'apprendre et de progresser.',
+        txt2: 'Une adaptabilité à toute techno par l\'apprentissage.',
+        txt3: 'Une curiosité débordante '
       }"
-    ></prestation>
-    <prestation
-      h1="Maintenance de votre site internet"
+    ></competence>
+    <competence
+      h1="Compétence n°2: Maintenance et débuggage"
       :card="{
         img: 'card2.png',
         alt: 'maintenance de sites web php javascript et réseaux sociaux',
         p1: 'Mises À Jour',
         p2: 'Dépannages',
         p3: 'Modération',
-        href: 'https://docs.google.com/forms/d/e/1FAIpQLScrk8x-0RMkt4xzhFYC0jiwbU_YNYElWBiosjyyItr7Nrb1BA/viewform',
-        linkTitle: 'devis pour votre création de sites internet développés avec laravel et vuejs à Tours',
-        innerText: 'Devis en 3mn'
+        href: 'https://fr.linkedin.com/in/sylvain-gagnot',
+        linkTitle: 'linkedIn Sylvain GAGNOT',
+        innerText: 'Mon linkedIn'
       }"
       :digest="{
         icon1: 'far fa-edit',
-        icon2: 'fas fa-sliders-h',
-        icon3: 'fas fa-users',
-        txt1: 'Le contenu de votre site internet a besoin d\'être mis à jour?',
-        txt2: 'Votre site internet présente un problème de fonctionnement?',
-        txt3: 'Vous souhaitez déléguer la modération de votre site internet ou de vos pages sociales?'
+        icon2: 'fas fa-ambulance',
+        icon3: 'fas fa-cog',
+        txt1: 'Je mets à jour les contenus et le code obsolète',
+        txt2: 'Je debug tout type de site web',
+        txt3: 'J\'administre serveurs et applications'
       }"
       :speech="{
         href: '/',
-        linkTitle: 'codeheures.fr, developpeur freelance de sites internet, ecommerces et sites mobiles',
-        innerText: ' CODEheures.fr ',
+        linkTitle: 'Sylvain GAGNOT, développeur web à Tours 37.',
+        innerText: ' Sylvain GAGNOT ',
         txtBefore: '',
-        txtAfter: ' des prestations ponctuelles ou récurrentes en webmastering'
+        txtAfter: ' compétences en PHP, JS, LINUX et Frameworks Symfony, Laravel, VueJS, Nuxt, Docker, Traëfik...'
       }"
       :priorities="{
-        h2: 'Mes priorités pour vous',
-        icon1: 'far fa-life-ring',
-        icon2: 'fas fa-lock',
-        icon3: 'fas fa-graduation-cap',
-        txt1: 'Un support de qualité, rapide et efficace.',
-        txt2: 'La confidentialité et la mise en sécurité de vos données',
-        txt3: 'Une transmission totale des savoirs en cas de mutation du service'
+        h2: 'Mes autres qualités',
+        icon1: 'fas fa-hands-helping',
+        icon2: 'fas fa-star',
+        icon3: 'fas fa-tachometer-alt',
+        txt1: 'Je suis une personne de confiance et engagée',
+        txt2: 'J\'aime la qualité et les dévelopement robustes et bien finis',
+        txt3: 'Je reste concentré sur mes objectifs tant qu\'ils ne sont pas atteints'
       }"
-    ></prestation>
-    <prestation
-      h1="Combien coûte un site internet?"
+    ></competence>
+    <competence
+      h1="Que savoir de plus?"
       :withCost="true"
       :speech="{
         href: '/',
-        linkTitle: 'site codeheures.fr. Réalisation de sites web à Tours 37.',
-        innerText: ' CODEheures.fr ',
-        txtBefore: 'Pour cela ',
-        txtAfter: ' peut vous proposer plusieurs type de solutions.'
+        linkTitle: 'Sylvain GAGNOT, développeur web à Tours 37.',
+        innerText: '',
+        txtBefore: 'Je reste ouvert aux autres langages de programmations: ',
+        txtAfter: ' C, C++, JAVA etc... et j\'aimerai bien aussi faire du développement applicatif systeme.'
       }"
-    ></prestation>
+    ></competence>
   </div>
 </template>
 
 <script>
-  import Prestation from '~/components/Prestation.vue'
+  import Competences from '~/components/Competences.vue'
   export  default {
     components: {
-      prestation: Prestation
+      competence: Competences
     },
     transition (to, from) {
       if (from && from.name === 'index') {
@@ -102,7 +102,7 @@
       }
     },
     head: {
-      title: 'Prestations en création de sites web et maintenance internet'
+      title: 'Compétences Symfony, Laravel, VueJS, Docker, Traefik'
     }
   }
 </script>

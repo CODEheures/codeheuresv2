@@ -6,7 +6,7 @@
     <div class="row-cards">
       <realisation
         :card="{
-          title: 'à venir: Selfjob',
+          title: 'TestLab: Selfjob',
           img: 'selfjob.jpg',
           links: [
             {innerText: 'Nouveau site', href: 'https://selfjob.codeheures.fr'},
@@ -14,7 +14,7 @@
           ]
         }"
       >
-        <p slot="description" class="description">Cette future application, permet un recrutement sans CV basé sur l'affinité des personnalités.
+        <p slot="description" class="description">Cette application, permet un recrutement sans CV basé sur l'affinité des personnalités. Elle n'est pas finie.
           <br>Initialement réalisée avec <a class="a-invert-light" href="http://quasar-framework.org">Quasar</a> et <a class="a-invert-light" href="https://laravel.com">Laravel</a>
           une nouvelle version utilisant l'excellent framework <a class="a-invert-light" href="https://vuetifyjs.com/en/">Vuetify</a> est en cours de développement
         </p>
@@ -24,11 +24,11 @@
           title: 'Destockeurope.com',
           img: 'destockeurope.jpg',
           links: [
-            {innerText: 'Voir le site', href: 'https://destockeurope.com'}
+            {innerText: 'Voir son code', href: 'https://github.com/CODEheures/destockeurope'}
           ]
         }"
       >
-        <p slot="description" class="description">Cette application, compatible sur support mobile,  permet la mise en ligne d'annonces de destockage entre professionnels.
+        <p slot="description" class="description">Cette application, compatible sur support mobile,  permet la mise en ligne d'annonces de destockage entre professionnels. Elle n'est plus en ligne. Accedez à son code sur github
           <br>Réalisée avec <a class="a-invert-light" href="https://laravel.com">Laravel</a>, <a class="a-invert-light" href="https://vuejs.org/">VueJS</a> et <a class="a-invert-light" href="https://semantic-ui.com/">SemanticUI</a>
         </p>
       </realisation>
@@ -155,7 +155,7 @@
       realisation: Realisation
     },
     transition (to, from) {
-      if (from && (from.name === 'index' || from.name === 'prestations')) {
+      if (from && (from.name === 'index' || from.name === 'compétences')) {
           return {name: 'slide-all-to-up', mode: ''}
       } else {
         return {name: 'slide-all-to-down', mode: ''}
